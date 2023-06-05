@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "652578640",
+    "project_id": "ff-schemagen-demo",
+    "storage_bucket": "ff-schemagen-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652578640:android:2c423cb6cd9b124396a655",
+        "android_client_info": {
+          "package_name": "com.mycompany.aigendemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652578640-jugmg67f7f1ki8s490ulonpgse1qquts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClfPIFtk0WxrcaiwnEj-RG7TlaTzrKyUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652578640-jugmg67f7f1ki8s490ulonpgse1qquts.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "652578640-g944e4q02b2lj448nesd028iim8enjad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.leadgenerationdemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
