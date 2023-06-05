@@ -19,5 +19,48 @@ service cloud.firestore {
       allow read: if true;
     }
 
+
+    match /home_loan_applications/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /home_loan_applications/{parent}/demographicDetails/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/demographicDetails/{document} {
+      allow read: if true;
+    }
+
+
+    match /home_loan_applications/{parent}/personalContactInformation/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/personalContactInformation/{document} {
+      allow read: if true;
+    }
+
+
+    match /home_loan_applications/{parent}/incomeDetails/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/incomeDetails/{document} {
+      allow read: if true;
+    }
+
   }
 }

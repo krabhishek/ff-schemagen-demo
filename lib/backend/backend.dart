@@ -5,6 +5,10 @@ import 'schema/util/firestore_util.dart';
 
 import 'schema/leads_record.dart';
 import 'schema/source_record.dart';
+import 'schema/home_loan_applications_record.dart';
+import 'schema/demographic_details_record.dart';
+import 'schema/personal_contact_information_record.dart';
+import 'schema/income_details_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,6 +18,10 @@ export 'schema/util/schema_util.dart';
 
 export 'schema/leads_record.dart';
 export 'schema/source_record.dart';
+export 'schema/home_loan_applications_record.dart';
+export 'schema/demographic_details_record.dart';
+export 'schema/personal_contact_information_record.dart';
+export 'schema/income_details_record.dart';
 
 /// Functions to query LeadsRecords (as a Stream and as a Future).
 Future<int> queryLeadsRecordCount({
@@ -117,6 +125,231 @@ Future<FFFirestorePage<SourceRecord>> querySourceRecordPage({
     queryCollectionPage(
       SourceRecord.collection(parent),
       SourceRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query HomeLoanApplicationsRecords (as a Stream and as a Future).
+Future<int> queryHomeLoanApplicationsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      HomeLoanApplicationsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<HomeLoanApplicationsRecord>> queryHomeLoanApplicationsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      HomeLoanApplicationsRecord.collection,
+      HomeLoanApplicationsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<HomeLoanApplicationsRecord>> queryHomeLoanApplicationsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      HomeLoanApplicationsRecord.collection,
+      HomeLoanApplicationsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<HomeLoanApplicationsRecord>>
+    queryHomeLoanApplicationsRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          HomeLoanApplicationsRecord.collection,
+          HomeLoanApplicationsRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query DemographicDetailsRecords (as a Stream and as a Future).
+Future<int> queryDemographicDetailsRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      DemographicDetailsRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<DemographicDetailsRecord>> queryDemographicDetailsRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      DemographicDetailsRecord.collection(parent),
+      DemographicDetailsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<DemographicDetailsRecord>> queryDemographicDetailsRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      DemographicDetailsRecord.collection(parent),
+      DemographicDetailsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<DemographicDetailsRecord>>
+    queryDemographicDetailsRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          DemographicDetailsRecord.collection(parent),
+          DemographicDetailsRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query PersonalContactInformationRecords (as a Stream and as a Future).
+Future<int> queryPersonalContactInformationRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PersonalContactInformationRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PersonalContactInformationRecord>>
+    queryPersonalContactInformationRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollection(
+          PersonalContactInformationRecord.collection(parent),
+          PersonalContactInformationRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<List<PersonalContactInformationRecord>>
+    queryPersonalContactInformationRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          PersonalContactInformationRecord.collection(parent),
+          PersonalContactInformationRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<FFFirestorePage<PersonalContactInformationRecord>>
+    queryPersonalContactInformationRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          PersonalContactInformationRecord.collection(parent),
+          PersonalContactInformationRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query IncomeDetailsRecords (as a Stream and as a Future).
+Future<int> queryIncomeDetailsRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      IncomeDetailsRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<IncomeDetailsRecord>> queryIncomeDetailsRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      IncomeDetailsRecord.collection(parent),
+      IncomeDetailsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<IncomeDetailsRecord>> queryIncomeDetailsRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      IncomeDetailsRecord.collection(parent),
+      IncomeDetailsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<IncomeDetailsRecord>> queryIncomeDetailsRecordPage({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      IncomeDetailsRecord.collection(parent),
+      IncomeDetailsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
